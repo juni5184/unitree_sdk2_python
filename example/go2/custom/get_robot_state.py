@@ -8,6 +8,7 @@ from unitree_sdk2py.go2.video.video_client import VideoClient
 from unitree_sdk2py.idl.unitree_go.msg.dds_ import SportModeState_, LowState_
 
 
+image_path = "processed_image.jpg"
 class UnitreeClientBase:
     def __init__(self):
         self.state_manager = RobotStateManager()
@@ -84,7 +85,7 @@ class VLMClient(UnitreeClientBase):
         self.video_client.Init()
         print("[VLM Client] Video streaming started...")
 
-    def process_image(self, image_data, save_path="./custom/processed_image.jpg"):
+    def process_image(self, image_data, save_path=image_path):
         image = np.frombuffer(bytes(image_data), dtype=np.uint8)
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
 

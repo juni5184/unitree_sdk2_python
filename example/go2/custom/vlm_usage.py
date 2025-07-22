@@ -1,9 +1,8 @@
 from get_robot_state import VLMClient
 
 # Example usage:
-def vlm_callback_function(image_data, pos_vec, rpy_vec):
-    # processed_image_path = process_image(image_data, "./custom/processed_image.jpg")
-    print("Saved image:", image_data)
+def vlm_callback_function(image_path, pos_vec, rpy_vec):
+    print("Saved image path:", image_path)
     print("Position:", pos_vec)
     print("RPY:", rpy_vec)
 
