@@ -7,6 +7,11 @@ from unitree_sdk2py.idl.unitree_go.msg.dds_ import SportModeState_, LowState_
 g_state = None
 g_low_state = None
 combined_callback = None
+g_waypoint = None
+
+def set_waypoint(waypoint):
+    global g_waypoint
+    g_waypoint = waypoint
 
 # Callback register
 def register_combined_callback(callback_fn):
@@ -45,7 +50,8 @@ def extract_robot_state():
         "quaternion": quaternion,
         "rpy": rpy,
         "joint_pos": joint_pos,
-        "joint_vel": joint_vel
+        "joint_vel": joint_vel,
+        "waypoint": g_waypoint
     }
 
     return robot_state

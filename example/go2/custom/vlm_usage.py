@@ -1,10 +1,9 @@
-from get_robot_state import VLMClient, process_image
+from get_robot_state import VLMClient
 
 # Example usage:
-def your_callback_function(image_data, pos_vec, rpy_vec):
-    # 이미지 저장 및 처리 예시
-    processed_image_path = process_image(image_data, "./custom/processed_image.jpg")
-    print("Saved image:", processed_image_path)
+def vlm_callback_function(image_data, pos_vec, rpy_vec):
+    # processed_image_path = process_image(image_data, "./custom/processed_image.jpg")
+    print("Saved image:", image_data)
     print("Position:", pos_vec)
     print("RPY:", rpy_vec)
 
@@ -14,5 +13,5 @@ def your_callback_function(image_data, pos_vec, rpy_vec):
 
 if __name__ == "__main__":
     client = VLMClient()
-    client.register_combined_callback(your_callback_function)
+    client.register_combined_callback(vlm_callback_function)
     client.run()

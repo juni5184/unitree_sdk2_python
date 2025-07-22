@@ -1,4 +1,4 @@
-from client_rl_agent import register_combined_callback, rl_agent_main_process
+from get_robot_state import RLAgentClient
 
 def rl_agent_callback(robot_state):
     print("\n[RL Agent] Robot State:")
@@ -9,7 +9,9 @@ def rl_agent_callback(robot_state):
     print("Yaw:", robot_state["rpy"][2])
     print("Joint Position:", robot_state["joint_pos"])
     print("Joint Velocity:", robot_state["joint_vel"])
-
+    print("Waypoint:", robot_state["waypoint"])
+    waypoint = robot_state["waypoint"]
+    print("Received waypoint from VLM:", waypoint, "\n")
     # policy     
     # TODO: implement your policy here
 
@@ -20,6 +22,7 @@ def rl_agent_callback(robot_state):
 
     return target_joint_pos, target_joint_vel, cmd_vel
 
-register_combined_callback(rl_agent_callback)
-
-rl_agent_main_process()
+if __name__ == "__main__":
+    client = RLAgentClient()
+    client.register_combined_callback(rl_agent_callback)
+    client.run()
