@@ -1,9 +1,7 @@
 import sys
 import time
-import json
 import cv2
 import numpy as np
-import requests
 
 from unitree_sdk2py.core.channel import ChannelFactoryInitialize, ChannelSubscriber
 from unitree_sdk2py.go2.video.video_client import VideoClient

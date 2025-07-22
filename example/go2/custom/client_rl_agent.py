@@ -93,6 +93,5 @@ def rl_agent_main_process():
         print("Target joint vel:", target_joint_vel)
         print("Cmd vel:", cmd_vel)
 
-# For direct run
-if __name__ == "__main__":
-    rl_agent_main_process()
+# if __name__ == "__main__":
+#     rl_agent_main_process()
